@@ -43,7 +43,7 @@ def predict_success(data: Features):
     # Make the prediction
     prediction = model.predict_proba([[foundersEquity, investorsEquity, employeesEquity, othersEquity,
                                  burnRate, runway, cac, activeUsers, revenue, netProfit, grossMargin,
-                                 netMargin, retentionRate, mrrGrowth, ltvCacRatio, npsScore, conversionRate]])
+                                 netMargin, retentionRate, mrrGrowth, ltvCacRatio, npsScore, conversionRate]])[:, 1]
     print("success probablity of your startup based on the data is",prediction)
 
 
