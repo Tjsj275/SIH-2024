@@ -41,18 +41,12 @@ def predict_success(data: Features):
     conversionRate = data['conversionRate']
 
     # Make the prediction
-    prediction = model.predict([[foundersEquity, investorsEquity, employeesEquity, othersEquity,
+    prediction = model.predict_proba([[foundersEquity, investorsEquity, employeesEquity, othersEquity,
                                  burnRate, runway, cac, activeUsers, revenue, netProfit, grossMargin,
                                  netMargin, retentionRate, mrrGrowth, ltvCacRatio, npsScore, conversionRate]])
+    print("success probablity of your startup based on the data is",prediction)
 
-    if prediction[0] == 1:
-        result = "Successful"
-    else:
-        result = "Unsuccessful"
 
-    return {
-        'prediction': result
-    }
 
 # Run only if not in an interactive environment
 if __name__ == '__main__':
